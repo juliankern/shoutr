@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .container
+    +errors(messages)
+    
+    .card.card-block
+
+      form(method='POST')
+        legend #{lang.forgot.title}
+        .form-group
+          p #{lang.forgot.text}
+          label(for='email') #{lang.account.email}
+          input.form-control(type='email', name='email', id='email', placeholder='#{lang.account.email}', autofocus=true)
+        button.btn.btn-success(type='submit') #{lang.forgot.btn}

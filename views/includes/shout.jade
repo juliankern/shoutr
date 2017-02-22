@@ -1,0 +1,13 @@
+.shout
+    a(href='/profile/#{shout._user.username}').shout-user-image
+        img(src=shout._user.gravatar)
+    a(href='/profile/#{shout._user.username}')= shout._user.name
+    small.text-muted &nbsp;@#{shout._user.username}
+    small.text-muted.pull-right(data-timestamp=shout.timestamp)= shout.fromNow
+    p !{shout.textParsed}
+    if shout._medias
+        .shout-media
+            for media in shout._medias
+                if media.type == 'image'
+                    a(href=media.url, target='_blank')
+                        img(src=media.url).shout-media-image

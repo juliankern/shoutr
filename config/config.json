@@ -1,0 +1,42 @@
+{
+    "regex": {
+        "letters": "\\p{L}"
+    },
+    "defaults": {
+        "language": "en_US",
+        "user": {
+            "rank": 1
+        },
+        "shoutsPerPage": 10
+    },
+    "languages": [
+        "en_US",
+        "de_DE"
+    ],
+    "ranks": {
+        "0": {
+            "title": "Guest"
+        },
+        "1": {
+            "title": "Registered",
+            "isRegistered": true
+        },
+        "2": {
+            "title": "Moderator",
+            "isRegistered": true,
+            "isModerator": true,
+            "rights": [
+                "canDeleteShouts"
+            ]
+        },
+        "9": {
+            "title": "Administrator",
+            "isRegistered": true,
+            "isModerator": true,
+            "isAdmin": true,
+            "rights": [
+                "canDeleteShouts"
+            ]
+        }
+    }
+}

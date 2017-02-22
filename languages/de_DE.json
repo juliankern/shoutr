@@ -1,0 +1,89 @@
+{
+    "global": {
+        "app": "ShoutR",
+        "shouts": "Shouts",
+        "friends": "Freunde",
+        "stars": "Sterne"
+    },
+    "navigation": {
+        "home": "Home",
+        "contact": "Kontakt",
+        "search": "Suche",
+        "log_in": "Login",
+        "sign_up": "Registrierung",
+        "my_profile": "Mein Profil",
+        "friends": "Freunde",
+        "requests": "Freundesanfragen",
+        "account": "Einstellungen",
+        "logout": "Logout"
+    },
+    "timeline": {
+        "shout_btn": "Shout it!",
+        "shout_placeholder": "Was willst du shouten?",
+        "trends": "Trends",
+        "latest": "Neuste",
+        "nearby": "In der Nähe",
+        "friends": "Freunde"
+    },
+    "languages": {
+        "en_US": "Englisch",
+        "de_DE": "Deutsch"
+    },
+    "account": {
+        "title": "Profil Informationen",
+        "email": "Email",
+        "username": "Benutzername",
+        "name": "Name",
+        "gender": "Geschlecht",
+        "gender_m": "Männlich",
+        "gender_f": "Weiblich",
+        "language": "Sprache",
+        "rank": "Rang",
+        "location": "Location",
+        "website": "Website",
+        "gravatar": "Gravatar",
+        "update_profile": "Profil updaten",
+        "pass": "Passwort",
+        "change_pass": "Password ändern",
+        "reset_pass": "Passwort zurücksetzen",
+        "new_pass": "Neues Passwort",
+        "confirm_pass": "Passwort bestätigen",
+        "linked_accs": "Verknüpfte Accounts",
+        "unlink_face": "Entferne deinen Facebook Account" ,
+        "link_face": "Verknüpfe deinen Facebook Account",
+        "unlink_twit": "Entferne deinen Twitter Account",
+        "link_twit": "Verknüpfe deinen Twitter Account",
+        "unlink_google": "Entferne deinen Google Account",
+        "link_google": "Verknüpfe deinen Google Account",
+        "del_acc": "Account löschen",
+        "del_acc_text": "Du kannst deinen Account löschen, aber bedenke, dass du dies nicht rückgängig machen kannst!",
+        "del_acc_btn": "Meinen Account löschen"
+    },
+    "forgot": {
+        "title": "Passwort vergessen",
+        "text": "Gebe deine E-Mail Adresse ein, und wir sagen dir, wie du dein Passwort zurücksetzen kannst",
+        "btn": "Passwort zurücksetzen"
+    },
+    "friends": {
+        "title": "Freunde",
+        "nofriends": "Du hast bisher keine Freunde :(",
+        "norequests": "Du hast bisher keine Freundesanfragen bekommen :(",
+        "nosentrequests": "Du hast noch keine Freundesanfragen verschickt :(",
+        "end_btn": "Freundschaft beenden",
+        "accept": "Akzeptieren",
+        "reject": "Ablehnen",
+        "cancel": "Anfrage abbrechen"
+    },
+    "login": {
+        "title": "Login",
+        "remember": "Passwort speichern",
+        "forgot": "Hast du dein Passwort vergessen?",
+        "btn": "Login",
+        "or": "oder",
+        "sign_face": "Logge dich mit Facebook ein",
+        "sign_twit": "Logge dich mit Twitter ein",
+        "sign_google": "Logge dich mit Google ein",
+        "noacc": "Du hast noch keinen Account?",
+        "signup": "Registrieren"
+    }
+}

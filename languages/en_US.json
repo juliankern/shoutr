@@ -1,0 +1,99 @@
+{
+    "global": {
+        "app": "ShoutR",
+        "shouts": "Shouts",
+        "friends": "Friends",
+        "stars": "Stars"
+    },
+    "navigation": {
+        "home": "Home",
+        "contact": "Contact",
+        "search": "Search",
+        "log_in": "Log in",
+        "sign_up": "Sign up",
+        "my_profile": "My profile",
+        "friends": "Friends",
+        "requests": "Friend requests",
+        "account": "Account settings",
+        "logout": "Log out"
+    },
+    "notification": {
+        "mention": {
+            "headline": "New mention by @{linkedUser.username}",
+            "text": "{shout.text}"
+        }  
+    },
+    "timeline": {
+        "shout_btn": "Shout it!",
+        "shout_placeholder": "What do you want to shout?",
+        "trends": "Trends",
+        "latest": "Latest",
+        "nearby": "Nearby",
+        "friends": "Friends",
+        "new_users": "New users"
+    },
+    "languages": {
+        "en_US": "English",
+        "de_DE": "German"
+    },
+    "account": {
+        "title": "Profile Information",
+        "email": "Email",
+        "username": "Username",
+        "name": "Name",
+        "gender": "Gender",
+        "gender_m": "Male",
+        "gender_f": "Female",
+        "language": "Language",
+        "rank": "Rank",
+        "location": "Location",
+        "website": "Website",
+        "gravatar": "Gravatar",
+        "update_profile": "Update profile",
+        "pass": "Password",
+        "change_pass": "Change password",
+        "reset_pass": "Reset password",
+        "new_pass": "New password",
+        "confirm_pass": "Confirm password",
+        "linked_accs": "Linked accounts",
+        "unlink_face": "Unlink your Facebook account" ,
+        "link_face": "Link your Facebook account",
+        "unlink_twit": "Unlink your Twitter account",
+        "link_twit": "Link your Twitter account",
+        "unlink_google": "Unlink your Google account",
+        "link_google": "Link your Google account",
+        "del_acc": "Delete account",
+        "del_acc_text": "You can delete your account, but keep in mind this action is irreversible.",
+        "del_acc_btn": "Delete my account",
+        "add_tl": "Add to timeline",
+        "new_tl": "Add to new timeline"
+    },
+    "forgot": {
+        "title": "Forgot password",
+        "text": "Enter your email address below and we'll send you password reset instructions.",
+        "btn": "Reset Password"
+    },
+    "friends": {
+        "title": "Friends",
+        "nofriends": "You got no friends yet :(",
+        "norequests": "You haven't any requests yet :(",
+        "nosentrequests": "You haven't sent any requests yet :(",
+        "end_btn": "End friendship",
+        "add_btn": "Add as friend",
+        "accept": "Accept",
+        "reject": "Reject",
+        "cancel": "Cancel request"
+    },
+    "login": {
+        "title": "Login",
+        "remember": "Remember me",
+        "forgot": "Forgot your password?",
+        "btn": "Log in",
+        "or": "or",
+        "sign_face": "Sign in with Facebook",
+        "sign_twit": "Sign in with Twitter",
+        "sign_google": "Sign in with Google",
+        "noacc": "Don't have an account?",
+        "signup": "Sign up"
+    }
+}

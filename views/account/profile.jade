@@ -1,0 +1,78 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            .col-sm-3
+                +shortprofile(user)
+                
+                if currentUser && user.id != currentUser.id
+                    .card.card-block
+                        if user.friendRequests.indexOf(currentUser.id) !== -1
+                            form(method='POST').btn-block.btn-group
+                                button.btn.btn-default.btn-block(name='cancelRequest',value=user.id) #{lang.friends.cancel}
+                        else if user.friends.indexOf(currentUser.id) !== -1
+                            form(method='POST').btn-block.btn-group
+                                button.btn.btn-danger.btn-block(name='endFriendship',value=user.id) #{lang.friends.end_btn}
+                        else
+                            form(method='POST').btn-block.btn-group
+                                button.btn.btn-default.btn-block(name='addFriend',value=user.id) #{lang.friends.add_btn}
+                        .btn-group.btn-block(data-timeline-button)
+                            button.btn.btn-default.btn-block.dropdown-toggle(type='button',data-toggle='dropdown') #{lang.account.add_tl}
+                                &nbsp;
+                                span.caret
+                            ul.dropdown-menu(data-timeline-list)
+                                for tl in timelines
+                                    - hasUser = false
+                                    - className = 'text-transparent'
+                                    if tl.users.indexOf(user.id) !== -1
+                                        - hasUser = true
+                                        - className = 'text-success'
+                                    li
+                                        a(data-timeline-id=tl.id,data-remove=hasUser,data-add=!hasUser)= tl.name
+                                            i(class='fa fa-fw fa-check pull-left ' + className)
+                                if timelines.length > 0
+                                    li.divider(role='separator')
+                                li
+                                    a(data-create-timeline) #{lang.account.new_tl}
+
+                .card.card-block
+                    table.table.table-striped
+                        tr
+                            td #{lang.global.shouts}
+                            td 
+                                a(href='/search/@#{user.username}')= user.shoutCount
+                        tr
+                            td #{lang.account.member_since}
+                            td= user.memberSince
+                        tr
+                            td #{lang.account.email}
+                            td= user.email
+                        tr
+                            td #{lang.account.username}
+                            td= user.username
+                        tr
+                            td #{lang.account.name}
+                            td= user.name
+                        tr
+                            td #{lang.account.gender}
+                            td= user.gender
+                        tr
+                            td #{lang.account.rank}
+                            td= user.rankData.title
+                        tr
+                            td #{lang.account.location}
+                            td= user.location
+                        tr
+                            td #{lang.account.website}
+                            td= user.website
+            .col-sm-9
+                +errors(messages)
+                
+                .card.card-block
+                    .shouts
+                        if shouts.length == 0
+                            p #{lang.shouts.noshouts}
+                        for shout in shouts
+                            include ../includes/shout
+        

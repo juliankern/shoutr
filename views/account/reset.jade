@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    .container
+        +errors(messages)
+
+        .card.card-block
+            form(method='POST')
+                h3.card-title #{lang.account.reset_pass}
+                .form-group
+                    label(for='password') #{lang.account.new_pass}
+                    input.form-control(type='password', name='password', id='password', placeholder=lang.account.new_pass, autofocus=true)
+                .form-group
+                    label(for='confirm') #{lang.account.confirm_pass}
+                    input.form-control(type='password', name='confirm', id='confirm', placeholder=lang.account.confirm_pass)
+                .form-group
+                    button.btn.btn-success(type='submit') #{lang.account.change_pass}

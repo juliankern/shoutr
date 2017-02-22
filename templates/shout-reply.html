@@ -1,0 +1,16 @@
+<form class="shout-form" data-shout-reply="{{id}}">
+    <div class="shout-form-shoutbox">
+        <div contenteditable="true" type="text" placeholder="What do you want to shout?" data-shout class="form-control placeholder-visible"></div>
+        <button type="button" data-shout-location data-tooltip class="btn btn-none shout-form-location" data-original-title="Activate location for this shout">
+            <i class="fa fa-location-arrow"></i>
+        </button>
+    </div>
+    <div class="shout-form-button">
+        <button class="btn dummy">Shout it!</button>
+        <small data-shout-length class="shout-length text-muted">&nbsp;</small>
+        <button data-click="postShout" type="button" class="btn btn-outline-primary">Shout it!</button>
+    </div>
+    <div class="shout-typeahead">
+        <div class="dropdown-menu"></div>
+    </div>
+</form>

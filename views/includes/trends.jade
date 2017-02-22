@@ -1,0 +1,6 @@
+h4.card-title #{lang.timeline.trends}
+ul.list-unstyled
+    for trend in trends
+        li 
+            a(href='/search/' + encodeURIComponent(trend.name))=trend.name 
+            small.pull-right.text-muted=trend.count

@@ -1,0 +1,6 @@
+h4.card-title #{lang.timeline.new_users}
+ul.list-unstyled
+    for user in newUsers
+        li 
+            a(href='/profile/' + encodeURIComponent(user.username))=user.username 
+            small.pull-right.text-muted=user.memberSince

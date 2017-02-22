@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .login-container.container
+        .card.card-block
+            form(method='POST',data-login-form)
+                h3.card-title #{lang.login.title}
+                +errors(messages)
+                
+                .form-group
+                    label.control-label(for='email') #{lang.account.email}
+                    input.form-control(type='email', name='email', id='email', placeholder=lang.account.email, autofocus=true, autocomplete='off')
+                .form-group
+                    label.control-label(for='password') #{lang.account.pass}
+                    input.form-control(type='password', name='password', id='password', placeholder=lang.account.pass)
+                .checkbox
+                    label
+                        input(type='checkbox',name='remember_me') 
+                        span #{lang.login.remember}
+
+                .form-group
+                    a(href='/forgot')
+                        strong #{lang.login.forgot}
+                button.btn.btn-success(type='submit',data-login-submit) #{lang.login.btn}
+
+                .hr-title
+                    span #{lang.login.or}
+
+                .btn-toolbar.text-center
+                    a.btn.btn-facebook(href='/auth/facebook') #{lang.login.sign_face}
+                    a.btn.btn-twitter(href='/auth/twitter') #{lang.login.sign_twit}
+                    a.btn.btn-google(href='/auth/google') #{lang.login.sign_google}
+
+                p.text-center #{lang.login.noacc}&nbsp;
+                    a(href='/signup')
+                        strong #{lang.login.signup}

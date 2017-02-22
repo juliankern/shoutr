@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .login-container.container
+        .card.card-block
+            +errors(messages)
+            
+            h3.card-title Create an account
+            form(method='POST')
+                .form-group
+                    label(for='username') Username
+                    input.form-control(type='text', name='username', id='username', placeholder='Username', autofocus=true)
+                .form-group
+                    label(for='name') Name
+                    input.form-control(type='text', name='name', id='name', placeholder='Name')
+                .form-group
+                    label(for='email') Email
+                    input.form-control(type='email', name='email', id='email', placeholder='Email')
+                .form-group
+                    label(for='password') Password
+                    input.form-control(type='password', name='password', id='password', placeholder='Password')
+                .form-group
+                    small.text-muted By signing up, you agree to the <a href="/">Terms of Service</a>.
+                button.btn.btn-success(type='submit') Create an account
+
+            .hr-title
+                span or
+
+            .btn-toolbar.text-center
+                a.btn.btn-facebook(href='/auth/facebook') Sign in with Facebook
+                a.btn.btn-twitter(href='/auth/twitter') Sign in with Twitter
+                a.btn.btn-google(href='/auth/google') Sign in with Google
+
+        p.text-center Already have an account?&nbsp;
+            a(href='/login')
+                strong Log in

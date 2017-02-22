@@ -1,0 +1,12 @@
+{
+  "apps" : [{
+    "name"          : "Shoutr",
+    "script"        : "server.js",
+    "watch"         : ["server"],
+    "restart_delay" : 30000,
+    "env"           : {
+      "NODE_ENV": "development",
+    },
+    "args"          : "--port 3001"
+  }]
+}

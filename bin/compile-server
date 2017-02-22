@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+var shell = require('./_shell.js');
+var concat = require('concat-files');
+var mkdirp = require('mkdirp');
+
+mkdirp('./dest/server/', function (err) {
+    if (err) console.error(err)
+    else console.log('server folder created!')
+});
+
+concat([
+    './src/server/_global.js',
+    './src/server/_oauth.js',
+    './src/server/_routing.js'
+], './dest/server/server.js', function() {
+    console.log('server.js done');
+});
+
+shell.fs.copySync('./src/server/model.js', './dest/server/model.js');

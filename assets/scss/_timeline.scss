@@ -1,0 +1,21 @@
+.timeline {
+    &-tabs {
+        margin: 0 10px -1px 10px;
+        position: relative;
+        z-index: 1;
+        
+        .nav-item {
+            .nav-link {
+                cursor: pointer;
+                padding: 5px 10px;
+                
+                &.active {
+                    &, 
+                    &:focus {
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+form.shout-form
+    img(src=currentUser.gravatar).shout-form-user-image
+    .shout-form-shoutbox
+        .form-control.form-control-lg(contenteditable='true',type='text',placeholder=lang.timeline.shout_placeholder,data-shout)
+        button.btn.btn-none.btn-lg.shout-form-location(type='button',data-shout-location,data-tooltip,title='Activate location for this shout')
+            i.fa.fa-location-arrow
+    .shout-form-button
+        button.btn.btn-lg.dummy #{lang.timeline.shout_btn}
+        small.shout-length.text-muted(data-shout-length) &nbsp;
+        button.btn.btn-outline-primary.btn-lg(data-click='postShout',type='button') #{lang.timeline.shout_btn}
+    .shout-typeahead
+        .dropdown-menu

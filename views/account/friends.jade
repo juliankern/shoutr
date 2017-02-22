@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    .container
+        +errors(messages)
+
+        .card.card-block
+            form(method='POST')
+                legend #{lang.friends.title}
+                .row
+                    if friends.length === 0
+                        .col-sm-12
+                            p #{lang.friends.nofriends}
+                    for req in friends
+                        - buttons = [ { type: 'submit', classes: 'btn-danger', name: 'endFriendship', value: req.id, text: lang.friends.end_btn } ];
+                        .col-sm-3
+                            +shortprofile(req, buttons)                            

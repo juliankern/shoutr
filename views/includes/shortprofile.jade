@@ -1,0 +1,21 @@
+mixin shortprofile(user, buttons)
+    if user
+        .shortprofile(data-user-id=user.id)
+            a(href='/profile/' + user.username)
+                img(src=user.gravatar).shortprofile-image
+            .card.card-block
+                .shortprofile-name=user.name
+                    small
+                        a.text-muted(href='/profile/' + user.username) @#{user.username}
+                .hr-title
+                .shortprofile-data
+                    .shortprofile-data-item=user.shoutCount
+                        small.text-muted #{lang.global.shouts}
+                    .shortprofile-data-item=user.friends.length
+                        small.text-muted #{lang.global.friends}
+                    .shortprofile-data-item=user.starCount
+                        small.text-muted #{lang.global.stars}
+                if buttons
+                    .btn-group.btn-group-justified(role='group')
+                        for b in buttons
+                            button(class='btn btn-sm ' + b.classes,name=b.name,value=b.value,type=b.type)= b.text

@@ -1,0 +1,27 @@
+<button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+    Add to timeline
+    <span class="caret"></span>
+</button>
+<ul class="dropdown-menu" data-timeline-list>
+    {{#each timelines}}
+        <li>
+            {{#if hasUser}}
+                <a data-timeline-id="{{id}}" data-remove>
+                    {{name}}
+                    <i class="fa fa-fw fa-check pull-left text-success"></i>
+                </a>
+            {{else}}
+                <a data-timeline-id="{{id}}" data-add>
+                    {{name}}
+                    <i class="fa fa-fw fa-check pull-left text-transparent"></i>
+                </a>
+            {{/if}}
+        </li>
+    {{/each}}
+    {{#if timelines}}<li class="divider" role="separator"></li>{{/if}}
+    <li>
+        <a data-create-timeline>
+            Add to new timeline
+        </a>    
+    </li>
+</ul>

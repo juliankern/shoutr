@@ -1,0 +1,85 @@
+nav.navbar.navbar-light.navbar-full
+    .container
+        button.navbar-toggler.hidden-sm-up(type='button', data-toggle='collapse', data-target='#navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        a.navbar-brand(href='/') 
+            img(src='/img/shoutr-logo.svg').shoutr-logo
+            | &nbsp; #{lang.global.app}
+        #navbar.navbar-toggleable-xs.collapse
+            .nav.navbar-nav
+                a.nav-link.nav-item(href='/',class=(title == lang.navigation.home) ? 'active' : null) #{lang.navigation.home}
+
+            form(role="search").form-inline.pull-xs-left
+                input(type="search", placeholder="#{lang.navigation.search}", value=searchterm).form-control
+
+            .nav.navbar-nav.pull-xs-right
+                if currentUser
+                    .dropdown.nav-item
+                        a.nav-link.navbar-notifications.dropdown-toggle(href='#',data-toggle='dropdown')
+                            i.fa.fa-fw.fa-comments-o
+                            span.notification-badge.tag.tag-pill.tag-primary(data-messages-badge)
+                        .dropdown-menu.dropdown-menu-right(data-message-list)
+                            .notification.dropdown-item
+                                .notification-title Feature not yet available :(
+                                .notification-text ...but I'm working on it!
+                    .dropdown.nav-item
+                        a.nav-link.navbar-notifications.dropdown-toggle(href='#',data-toggle='dropdown')
+                            i.fa.fa-fw.fa-bell-o
+                            span.notification-badge.tag.tag-pill.tag-primary(data-notifications-badge)
+                        .dropdown-menu.dropdown-menu-right(data-notifications-list)
+                else
+                    a.nav-item.nav-link(href='/login',class=(title == lang.navigation.log_in) ? 'active' : null) #{lang.navigation.log_in}
+                    a.nav-item.nav-link(href='/signup',class=(title == lang.navigation.sign_up) ? 'active' : null) #{lang.navigation.sign_up}
+                if news
+                    .dropdown.nav-item
+                        a.nav-link.navbar-notifications.dropdown-toggle(href='#',data-toggle='dropdown')
+                            i.fa.fa-fw.fa-newspaper-o
+                            span.notification-badge.tag.tag-pill.tag-primary(data-news-badge)= unreadNewsCount
+                        .dropdown-menu.dropdown-menu-right(data-news-list)
+                            for item in news
+                                a.notification.dropdown-item(data-notification-unread=!item.isReadByUser,data-notification-id=item.id)
+                                    .notification-title= item.headline
+                                        small.text-muted.notification-time= item.fromNow
+                                    .notification-text= item.text
+                if currentUser
+                    .dropdown.nav-item
+                        a.nav-link.navbar-avatar.dropdown-toggle(href='#', data-toggle='dropdown')
+                            if currentUser.picture
+                                img(src=currentUser.picture)
+                            else
+                                img(src=currentUser.gravatar)
+                        .dropdown-menu.dropdown-menu-right
+                            a.dropdown-item(href='/profile/#{currentUser.username}') #{lang.navigation.profile}
+                            a.dropdown-item(href='/friends') #{lang.navigation.friends}
+                                    if currentUser.friends.length > 0
+                                        | &nbsp;
+                                        span.tag.tag-pill.tag-info= currentUser.friends.length
+                            a.dropdown-item(href='/account/requests') #{lang.navigation.requests}
+                                    if currentUser.friendRequests.length > 0
+                                        | &nbsp;
+                                        span.tag.tag-pill.tag-info= currentUser.friendRequests.length
+                            a.dropdown-item(href='/account') #{lang.navigation.account}
+                            .dropdown-divider
+                            a.dropdown-item(href='/logout') #{lang.navigation.logout}
+                .dropdown.nav-item
+                    a.nav-link.dropdown-toggle.navbar-languages(href='#', data-toggle='dropdown')
+                        i.fa.fa-fw.fa-globe
+                        | &nbsp;
+                    .dropdown-menu.dropdown-menu-right
+                        for l in languages 
+                            a.dropdown-item(href='?lang=' + l) #{lang.languages[l]}
+                                if currentLanguage === l
+                                    | 
+                                    i.fa.fa-check.text-success
+if breadcrumbs && breadcrumbs.length > 0
+    .container
+        nav.breadcrumb
+            each bc, i in breadcrumbs
+                if i === (breadcrumbs.length - 1)
+                    span.breadcrumb-item.active= bc.name
+                else
+                    a.breadcrumb-item(href=bc.link)= bc.name
+

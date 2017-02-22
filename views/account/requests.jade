@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+    .container
+        +errors(messages)
+
+        .card.card-block
+            h4.card-title Friend requests
+            form(method='POST')
+                .row
+                    if requests.length === 0
+                        .col-sm-12
+                            p #{lang.friends.norequest}
+                    for req in requests
+                        - buttons = [ { type: 'submit', classes: 'btn-primary', name: 'accept', value: req.id, text: lang.friends.accept }, { type: 'submit', classes: 'btn-default', name: 'reject', value: req.id, text: lang.friends.reject } ];
+                        .col-sm-3
+                            +shortprofile(req, buttons)
+
+        .card.card-block
+            h4.card-title Sent requests
+            form(method='POST')
+                .row
+                    if sentRequests.length === 0
+                        .col-sm-12
+                            p #{lang.friends.nosentrequests}
+                    for req in sentRequests
+                        - buttons = [ { type: 'submit', classes: 'btn-default', name: 'cancel', value: req.id, text: lang.friends.canel } ];
+                        .col-sm-3
+                            +shortprofile(req, buttons)                            

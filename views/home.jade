@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    .container
+        +errors(messages)
+
+        .row
+            .col-sm-3
+                +shortprofile(currentUser)
+
+                .card.card-block
+                    include includes/trends
+                .card.hidden-lg-up.card-block
+                    include includes/new-users
+
+                .card.hidden-lg-up.card-block
+                    include includes/footer
+            .col-md-9.col-lg-6
+                if currentUser && !searchterm
+                    .card.card-block
+                        include includes/shoutbox
+                ul.nav.nav-tabs.timeline-tabs
+                    li.nav-item
+                        a.nav-link.active(data-timeline-type='latest') #{lang.timeline.latest}
+                    if currentUser
+                        li.nav-item
+                            a.nav-link(data-timeline-type='nearby') #{lang.timeline.nearby}
+                        if currentUser.friends.length > 0
+                            li.nav-item
+                                a.nav-link(data-timeline-type='friends') #{lang.timeline.friends}
+                        for tl in timelines
+                            li.nav-item
+                                a.nav-link(data-timeline-id=tl.id)= tl.name
+                    else
+                        li.nav-item
+                            a.nav-link.disabled #{lang.timeline.nearby}
+                        li.nav-item
+                            a.nav-link.disabled #{lang.timeline.friends}
+                .card.shout-panel.card-block
+                        .shouts(data-shout-list)
+                        button.btn.btn-outline-primary.btn-block(data-shout-load-more) Load more shouts
+            .col-sm-3.hidden-md-down
+                .card.card-block
+                    include includes/new-users
+
+                .card.card-block
+                    include includes/footer

@@ -1,0 +1,81 @@
+<div class="shout" data-shout-id="{{shout._id}}">
+    <a class="shout-user-image" href="/profile/{{shout._user.username}}">
+        <img src="{{shout._user.gravatar}}" alt="User Avatar">
+    </a>
+    <a class="shout-user-name" href="/profile/{{shout._user.username}}">
+        {{shout._user.name}}
+    </a>
+    <small class="text-muted">&nbsp;@{{shout._user.username}}</small>
+    <div class="shout-info pull-right text-muted">
+        <small data-timestamp="{{shout.timestamp}}">{{shout.fromNow}}</small>
+        {{#unless hideButtons}}
+            <a data-shout-link>#</a>
+        {{/unless}}
+    </div>
+    <p class="shout-text">
+        {{{shout.textParsed}}}
+    </p>
+    {{#unless hideButtons}}
+        <small class="shout-buttons text-muted">
+            {{#if shout.isStaredByUser}}
+                <button type="button" class="btn-none text-muted" title="Unfavorite this shout" data-tooltip data-shout-unstar>
+                    <i class="shout-buttons-fav fa fa-star" data-shout-unstar></i>
+                </button>
+            {{else}}
+                <button type="button" class="btn-none text-muted" title="Favorite this shout" data-tooltip data-shout-star>
+                    <i class="shout-buttons-fav fa fa-star-o"></i>
+                </button>
+            {{/if}} {{shout.stars.length}}
+            <button type="button" class="btn-none text-muted" data-shout-reply title="Reply to this shout" data-tooltip>
+                <i class="shout-buttons-reply fa fa-reply"></i>
+            </button>
+            {{shout.replyCount}}
+
+            {{#if shout.canDeleteShout}}
+                <button type="button" class="btn-none text-muted" data-shout-delete title="Delete this shout" data-tooltip>
+                    <i class="shout-buttons-delete fa fa-trash-o"></i>
+                </button>
+            {{/if}}
+            {{#if shout.location}}
+                <button type="button" class="btn-none text-muted" data-location="{{shout.location}}" data-shout-location title="Calculate distance" data-tooltip>
+                    <i class="shout-buttons-location fa fa-location-arrow text-muted"></i>
+                </button>
+            {{/if}}
+        </small>
+    {{/unless}}
+    {{#if shout._medias}}
+        <div class="shout-media">
+            {{#each shout._medias}}
+                {{#if isImage}}
+                    <a href="{{url}}" target="_blank">
+                        <img src="{{url}}" class="shout-media-image" alt="Shout Image">
+                    </a>
+                {{/if}}
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#if replys}}
+        <div class="shout-replys">
+            {{#each replys}}
+                <div class="shout" data-shout-id="{{_id}}">
+                    <a class="shout-user-image" href="/profile/{{_user.username}}">
+                        <img src="{{_user.gravatar}}" alt="User Avatar">
+                    </a>
+                    <a class="shout-user-name" href="/profile/{{_user.username}}">
+                        {{_user.name}}
+                    </a>
+                    <small class="text-muted">&nbsp;@{{_user.username}}</small>
+                    <div class="shout-info pull-right text-muted">
+                        <small data-timestamp="{{timestamp}}">{{fromNow}}</small>
+                        {{#unless hideButtons}}
+                            <a data-shout-link>#</a>
+                        {{/unless}}
+                    </div>
+                    <p class="shout-text">
+                        {{{textParsed}}}
+                    </p>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

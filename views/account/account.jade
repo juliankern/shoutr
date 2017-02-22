@@ -1,0 +1,89 @@
+extends ../layout
+
+block content
+  .container
+    +errors(messages)
+    
+    .card.card-block
+        form.form-horizontal(method='POST', action='/account?_method=PUT')
+          legend #{lang.account.title}
+          .form-group
+            label.col-sm-3(for='email') #{lang.account.email}
+            .col-sm-7
+              input.form-control(type='email', name='email', id='email', value=currentUser.email)
+          .form-group
+            label.col-sm-3(for='name') #{lang.account.username}
+            .col-sm-7
+              input.form-control(type='text', name='username', id='username', value=currentUser.username)
+          .form-group
+            label.col-sm-3(for='name') #{lang.account.name}
+            .col-sm-7
+              input.form-control(type='text', name='name', id='name', value=currentUser.name)
+          .form-group
+            label.col-sm-3 #{lang.account.gender}
+            .col-sm-4
+              label.radio-inline.radio.col-sm-4
+                input(type='radio', checked=(currentUser.gender == 'male'), name='gender', value='male', data-toggle='radio')
+                span #{lang.account.gender_m}
+              label.radio-inline.col-sm-4
+                input(type='radio', checked=(currentUser.gender == 'female'), name='gender', value='female', data-toggle='radio')
+                span #{lang.account.gender_f}
+          .form-group
+            label.col-sm-3(for='rank') #{lang.account.rank}
+            .col-sm-7= currentUser.rankData.title
+          .form-group
+            label.col-sm-3(for='location') #{lang.account.location}
+            .col-sm-7
+              input.form-control(type='text', name='location', id='location', value=currentUser.location)
+          .form-group
+            label.col-sm-3(for='website') #{lang.account.website}
+            .col-sm-7
+              input.form-control(type='text', name='website', id='website', value=currentUser.website)
+          .form-group
+            label.col-sm-3 #{lang.account.gravatar}
+            .col-sm-4
+              img(src=currentUser.gravatar, class='profile', width='100', height='100')
+          .form-group
+            .col-sm-offset-3.col-sm-4
+              button.btn.btn-success(type='submit') #{lang.account.update_profile}
+
+    .card.card-block
+        form.form-horizontal(method='POST', action='/account?_method=PUT')
+          legend #{lang.account.change_pass}
+          .form-group
+            label.col-sm-3(for='password') #{lang.account.new_pass}
+            .col-sm-7
+              input.form-control(type='password', name='password', id='password')
+          .form-group
+            label.col-sm-3(for='confirm') #{lang.account.confirm_pass}
+            .col-sm-7
+              input.form-control(type='password', name='confirm', id='confirm')
+          .form-group
+            .col-sm-4.col-sm-offset-3
+              button.btn.btn-success(type='submit') #{lang.account.change_pass}
+
+    .card.card-block
+        .form-horizontal
+          legend #{lang.account.linked_accs}
+          .form-group
+            .col-sm-offset-3.col-sm-4
+              if currentUser.facebook
+                p: a.text-danger(href='/unlink/facebook') #{lang.account.unlink_face}
+              else
+                p: a(href='/auth/facebook') #{lang.account.link_face}
+              if currentUser.twitter
+                p: a.text-danger(href='/unlink/twitter') #{lang.account.unlink_twit}
+              else
+                p: a(href='/auth/twitter') #{lang.account.link_twit}
+              if currentUser.google
+                p: a.text-danger(href='/unlink/google') #{lang.account.unlink_google}
+              else
+                p: a(href='/auth/google') #{lang.account.link_google}
+
+    .card.card-block
+        form.form-horizontal(method='POST', action='/account?_method=DELETE')
+          legend #{lang.account.del_acc}
+          .form-group
+            p.col-sm-offset-3.col-sm-9 #{lang.account.del_acc_text}
+            .col-sm-offset-3.col-sm-9
+              button.btn.btn-danger(type='submit') #{lang.account.del_acc_btn}

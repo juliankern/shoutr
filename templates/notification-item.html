@@ -1,0 +1,15 @@
+<div class="dropdown-item notification notification-{{type}}" {{#if isReadByUser}}{{else}}data-notification-unread{{/if}} data-notification-id="{{id}}">
+    {{#if link}}<a href="{{link}}" target="{{linkTarget}}">
+    {{else if shout}}<a data-shout-link="{{shout._id}}">
+    {{else if linkedUser}}<a href="/profile/{{linkedUser.username}}">
+    {{else}}<a>{{/if}}
+        {{#if linkedUser}}
+            <img class="notification-image" src="{{linkedUser.gravatar}}">
+        {{/if}}
+        <div class="notification-title">{{headline}}
+            <small class="text-muted notification-time">{{fromNow}}</small>
+        </div>
+        <div class="notification-text">{{text}}</div>
+    </a>
+</div>
+
